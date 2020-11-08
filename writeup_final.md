@@ -64,11 +64,12 @@ After that, we compare the object points with image points, and get our matrix a
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size,None,None)
 ``` 
 
+<p align="center">
 <figure>
- <center>
   <img src="report_images/chess_distortion.png" alt="chess_distortion" style="width:100%">
   <figcaption style="text-align:center"><em>Figure 1 - Distortion Correction of a Chess Image</em></figcaption>
-</figure></center>
+</figure>
+</p>
 
 Finally, we use the camera matrix and distortion coefficients with the OpenCV function `undistort` to remove distortion from our test (road) images.
 
