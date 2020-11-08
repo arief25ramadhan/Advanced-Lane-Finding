@@ -67,7 +67,7 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_siz
 <figure>
  <center>
   <img src="report_images/chess_distortion.png" alt="chess_distortion" style="width:100%">
-  <figcaption><em>Figure 1 - Distortion Correction of a Chess Image</em></figcaption>
+  <figcaption style="text-align:center"><em>Figure 1 - Distortion Correction of a Chess Image</em></figcaption>
 </figure></center>
 
 Finally, we use the camera matrix and distortion coefficients with the OpenCV function `undistort` to remove distortion from our test (road) images.
@@ -75,7 +75,7 @@ Finally, we use the camera matrix and distortion coefficients with the OpenCV fu
 <figure>
  <center>
   <img src="report_images/road_distortion.png" alt="road_distortion" style="width:100%">
-  <figcaption><em>Figure 2 - Distortion Correction of Our Road Image</em></figcaption>
+  <figcaption style="text-align:center"><em>Figure 2 - Distortion Correction of Our Road Image</em></figcaption>
 </figure></center>
 
 ## 2.2 Region of Interest (ROI) and Perspective Transform
@@ -121,7 +121,7 @@ Figure 3 shows our road image after the ROI is selected and perspective transfor
 <figure>
  <center>
   <img src="report_images/roi_perspective.png" alt="roi_perspective" style="width:100%">
-  <figcaption><em>Figure 3 - ROI and Bird's Eye View Image</em></figcaption>
+  <figcaption style="text-align:center"><em>Figure 3 - ROI and Bird's Eye View Image</em></figcaption>
 </figure></center>
 
 ## 2.3. Color and Gradient Thresholds
@@ -158,7 +158,7 @@ The selection of color space, gradient direction, and threshold values are done 
 <figure>
  <center>
   <img src="report_images/thresholded_image.png" alt="threholded_image" style="width:100%">
-  <figcaption><em>Figure 4 - Thresholded Image</em></figcaption>
+  <figcaption style="text-align:center"><em>Figure 4 - Thresholded Image</em></figcaption>
 </figure></center>
 
 
@@ -232,7 +232,7 @@ Figure displays the results of the unwarping process.
 <figure>
  <center>
   <img src="report_images/unwarped_image.png" alt="unwarped_image" style="width:100%">
-  <figcaption><em>Figure 8 - Unwarped Image</em></figcaption>
+  <figcaption style="text-align:center"><em>Figure 8 - Unwarped Image</em></figcaption>
 </figure></center>
 
 
@@ -284,7 +284,7 @@ Figure XYZ display how our pipeline pipeline provides us (1) the left and right 
 <figure>
  <center>
   <img src="report_images/radius_deviation.png" alt="radius_deviation" style="width:100%">
-  <figcaption><em>Figure 9 - Pipeline Image Output</em></figcaption>
+  <figcaption style="text-align:center"><em>Figure 9 - Pipeline Image Output</em></figcaption>
 </figure></center>
 
 
