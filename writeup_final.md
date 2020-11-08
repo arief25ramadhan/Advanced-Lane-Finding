@@ -65,19 +65,16 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_siz
 ``` 
 
 <p align="center">
-<figure>
   <img src="report_images/chess_distortion.png" alt="chess_distortion" style="width:100%">
-  <figcaption style="text-align:center"><em>Figure 1 - Distortion Correction of a Chess Image</em></figcaption>
-</figure>
+  <em>Figure 1 - Distortion Correction of a Chess Image</em>
 </p>
 
 Finally, we use the camera matrix and distortion coefficients with the OpenCV function `undistort` to remove distortion from our test (road) images.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/road_distortion.png" alt="road_distortion" style="width:100%">
-  <figcaption style="text-align:center"><em>Figure 2 - Distortion Correction of Our Road Image</em></figcaption>
-</figure></center>
+  <em>Figure 2 - Distortion Correction of Our Road Image</em>
+</p>
 
 ## 2.2 Region of Interest (ROI) and Perspective Transform
 
@@ -119,11 +116,10 @@ def warp(image):
 
 Figure 3 shows our road image after the ROI is selected and perspective transform is performed.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/roi_perspective.png" alt="roi_perspective" style="width:100%">
-  <figcaption style="text-align:center"><em>Figure 3 - ROI and Bird's Eye View Image</em></figcaption>
-</figure></center>
+  <em>Figure 3 - ROI and Bird's Eye View Image</em>
+</p>
 
 ## 2.3. Color and Gradient Thresholds
 
@@ -156,21 +152,19 @@ def combine(warped_image):
 
 The selection of color space, gradient direction, and threshold values are done via trial and error. The output image of this binary thresholding is displayed by Figure 4 below. 
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/thresholded_image.png" alt="threholded_image" style="width:100%">
-  <figcaption style="text-align:center"><em>Figure 4 - Thresholded Image</em></figcaption>
-</figure></center>
+  <em>Figure 4 - Thresholded Image</em>
+</p>
 
 
 ## 2.4. Histogram for Lane Line Pixel Finding
 We identify the lane line pixels by using **histogram** method. As the name susggest, we look into the histogram of pixel values of each section of the image. Then, we identify the peaks which represent the location of the lane lines pixel.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/histogram_image.png" alt="histogram_image" style="width:100%">
-  <figcaption><em>Figure 5 - Histogram Image</em></figcaption>
-</figure></center>
+  <em>Figure 5 - Histogram Image</em>
+</p>
 
 We divide the image into several window blocks as the location of the lane pixels are varying across the image. So each window contains a pixel coordinate (X,Y) that indicate the position of the lane lines within the window. 
 
@@ -210,19 +204,17 @@ def fit_polynomial(binary_warped):
 
 Figure XYZ display the yellow line which indicates that.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
-  <figcaption><em>Figure 6 - Windowed Lane Lines with Yellow Reconstructed Polynomial Line</em></figcaption>
-</figure></center>
+  <em>Figure 6 - Windowed Lane Lines with Yellow Reconstructed Polynomial Line</em>
+</p>
 
 After that we smoothed the windows by using the code from point 4.2 in the advance_lane_findings.ipynb notebook. Figure 7 displays the output of this smoothing process.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
-  <figcaption><em>Figure 7 - Smoothed Window with Yellow Reconstructed Polynomial Line</em></figcaption>
-</figure></center>
+  <em>Figure 7 - Smoothed Window with Yellow Reconstructed Polynomial Line</em>
+</p>
 
 ## 2.5. Unwarp Images
 
@@ -230,11 +222,10 @@ Next, we unwarp the images by inversing the perspective transform and the polyno
 
 Figure displays the results of the unwarping process.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/unwarped_image.png" alt="unwarped_image" style="width:100%">
-  <figcaption style="text-align:center"><em>Figure 8 - Unwarped Image</em></figcaption>
-</figure></center>
+  <em>Figure 8 - Unwarped Image</em>
+</p>
 
 
 ## 2.6. Lane Line Curvature Radius and Vehicle Distance
@@ -282,11 +273,10 @@ def pipeline(image):
 
 Figure XYZ display how our pipeline pipeline provides us (1) the left and right lane position, (2) the radius of the lane curvatture, and (3) the distance of the car relative to the lane's center.
 
-<figure>
- <center>
+<p align="center">
   <img src="report_images/radius_deviation.png" alt="radius_deviation" style="width:100%">
-  <figcaption style="text-align:center"><em>Figure 9 - Pipeline Image Output</em></figcaption>
-</figure></center>
+  <em>Figure 9 - Pipeline Image Output</em>
+</p>
 
 
 ### 3.2. Results on Videos
