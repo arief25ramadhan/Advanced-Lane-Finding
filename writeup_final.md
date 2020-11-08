@@ -65,15 +65,17 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_siz
 ``` 
 
 <p align="center">
-  <img src="report_images/chess_distortion.png" alt="chess_distortion" style="width:100%">
-  <em>Figure 1 - Distortion Correction of a Chess Image</em>
+ <img src="report_images/chess_distortion.png" alt="chess_distortion" style="width:100%">
+ <br>
+ <em>Figure 1 - Distortion Correction of a Chess Image</em>
 </p>
 
 Finally, we use the camera matrix and distortion coefficients with the OpenCV function `undistort` to remove distortion from our test (road) images.
 
 <p align="center">
-  <img src="report_images/road_distortion.png" alt="road_distortion" style="width:100%">
-  <em>Figure 2 - Distortion Correction of Our Road Image</em>
+ <img src="report_images/road_distortion.png" alt="road_distortion" style="width:100%">
+ <br>
+ <em>Figure 2 - Distortion Correction of Our Road Image</em>
 </p>
 
 ## 2.2 Region of Interest (ROI) and Perspective Transform
@@ -117,8 +119,9 @@ def warp(image):
 Figure 3 shows our road image after the ROI is selected and perspective transform is performed.
 
 <p align="center">
-  <img src="report_images/roi_perspective.png" alt="roi_perspective" style="width:100%">
-  <em>Figure 3 - ROI and Bird's Eye View Image</em>
+ <img src="report_images/roi_perspective.png" alt="roi_perspective" style="width:100%">
+ <br>
+ <em>Figure 3 - ROI and Bird's Eye View Image</em>
 </p>
 
 ## 2.3. Color and Gradient Thresholds
@@ -162,8 +165,9 @@ The selection of color space, gradient direction, and threshold values are done 
 We identify the lane line pixels by using **histogram** method. As the name susggest, we look into the histogram of pixel values of each section of the image. Then, we identify the peaks which represent the location of the lane lines pixel.
 
 <p align="center">
-  <img src="report_images/histogram_image.png" alt="histogram_image" style="width:100%">
-  <em>Figure 5 - Histogram Image</em>
+ <img src="report_images/histogram_image.png" alt="histogram_image" style="width:100%">
+ <br>
+ <em>Figure 5 - Histogram Image</em>
 </p>
 
 We divide the image into several window blocks as the location of the lane pixels are varying across the image. So each window contains a pixel coordinate (X,Y) that indicate the position of the lane lines within the window. 
@@ -205,15 +209,17 @@ def fit_polynomial(binary_warped):
 Figure XYZ display the yellow line which indicates that.
 
 <p align="center">
-  <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
-  <em>Figure 6 - Windowed Lane Lines with Yellow Reconstructed Polynomial Line</em>
+ <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
+ <br>
+ <em>Figure 6 - Windowed Lane Lines with Yellow Reconstructed Polynomial Line</em>
 </p>
 
 After that we smoothed the windows by using the code from point 4.2 in the advance_lane_findings.ipynb notebook. Figure 7 displays the output of this smoothing process.
 
 <p align="center">
-  <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
-  <em>Figure 7 - Smoothed Window with Yellow Reconstructed Polynomial Line</em>
+ <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
+ <br>
+ <em>Figure 7 - Smoothed Window with Yellow Reconstructed Polynomial Line</em>
 </p>
 
 ## 2.5. Unwarp Images
@@ -223,8 +229,9 @@ Next, we unwarp the images by inversing the perspective transform and the polyno
 Figure displays the results of the unwarping process.
 
 <p align="center">
-  <img src="report_images/unwarped_image.png" alt="unwarped_image" style="width:100%">
-  <em>Figure 8 - Unwarped Image</em>
+ <img src="report_images/unwarped_image.png" alt="unwarped_image" style="width:100%">
+ <br>
+ <em>Figure 8 - Unwarped Image</em>
 </p>
 
 
@@ -275,6 +282,7 @@ Figure XYZ display how our pipeline pipeline provides us (1) the left and right 
 
 <p align="center">
   <img src="report_images/radius_deviation.png" alt="radius_deviation" style="width:100%">
+  <br>
   <em>Figure 9 - Pipeline Image Output</em>
 </p>
 
