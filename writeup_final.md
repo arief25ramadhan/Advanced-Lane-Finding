@@ -242,9 +242,9 @@ We calculate the radius of the lane line as well as the deviation of the vehicle
 The lane line curvature is measured by implementing some mathematical formula in our code. The formula is as follow: 
 
 <p align="center">
- <img src="curve_radius_formula.png" alt="curve_radius_formula" style="width:80%">
+ <img src="output_images/curve_radius_formula.png" alt="curve_radius_formula" style="width:80%">
  <br>
- <em>Figure 8 - Unwarped Image</em>
+ <em>Figure 9 - Curve Radius Formula</em>
 </p>
 
 This radius changes as the vehicle move along as in our video. The implementation of this formula is contained in section 6 of advanced_lane_finding.ipynb notebook file. 
@@ -282,28 +282,30 @@ def pipeline(image):
 
 ### 3.1. Results on Images
 
-Figure 9 displays how our pipeline pipeline provides us (1) the left and right lane position, (2) the radius of the lane curvatture, and (3) the distance of the car relative to the lane's center.
+Figure 10 displays how our pipeline pipeline provides us (1) the left and right lane position, (2) the radius of the lane curvatture, and (3) the distance of the car relative to the lane's center.
 
 <p align="center">
-  <img src="report_images/radius_deviation.png" alt="radius_deviation" style="width:100%">
+  <img src="report_images/radius_deviation.png" alt="image output" style="width:100%">
   <br>
-  <em>Figure 9 - Pipeline Image Output</em>
+  <em>Figure 10 - Pipeline Image Output</em>
 </p>
 
 
 ### 3.2. Results on Videos
 
-Here is the [link to my video result](https://github.com/arief25ramadhan/Advanced-Lane-Finding/blob/main/output_videos/project_video_output.mp4). As you can see in the GIF below the pipeline provides us the information similar to what we have seen in figure 9.
+Here is the [link to my video result](https://github.com/arief25ramadhan/Advanced-Lane-Finding/blob/main/output_videos/project_video_output.mp4). As you can see in the GIF below the pipeline provides us the information similar to what we have seen in figure 10.
+
+<p align="center">
+  <img src="output_videos/project-video-output-gif.gif" alt="video_output" style="width:100%">
+  <br>
+  <em>Figure 11 - Pipeline Video Output</em>
+</p>
 
 
 ## 4. Discussion
 
 The pipeline works well for the project video because there is little change in lighting, lane lines, and shadowing. 
 
-The model does not perform adequately in the [challenge video](https://github.com/arief25ramadhan/Advanced-Lane-Finding/blob/main/output_videos/project_video_output.mp4), mainly because of the additional features like different lighting and the intersection of varying road asphalt colors. 
+The model does not perform adequately in the [challenge video](https://github.com/arief25ramadhan/Advanced-Lane-Finding/blob/main/output_videos/challenge_video_output.mp4), mainly because of the additional features like different lighting and the intersection of varying road asphalt colors. 
 
 The way to overcome this is a better thresholding technique, with optimum threshold values. The dilemma in setting threshold is that if it is too strict, the lane lines would only appear if it is painted on the road, while if the threshold too flexible, we might find lane lines where there is none.
-
-## 5. Link
-
-The project report, code, images, and videos can be found here:
