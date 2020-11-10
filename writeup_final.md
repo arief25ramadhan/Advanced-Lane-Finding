@@ -206,10 +206,10 @@ def fit_polynomial(binary_warped):
     return out_img, left_fit, right_fit, left_fitx, right_fitx, ploty
 ```
 
-Figure XYZ display the yellow line which indicates that.
+Figure 6 display the yellow line which is drawn using the polynomial function.
 
 <p align="center">
- <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
+ <img src="report_images/window_line.png" alt="window_line" style="width:100%">
  <br>
  <em>Figure 6 - Windowed Lane Lines with Yellow Reconstructed Polynomial Line</em>
 </p>
@@ -217,7 +217,7 @@ Figure XYZ display the yellow line which indicates that.
 After that we smoothed the windows by using the code from point 4.2 in the advance_lane_findings.ipynb notebook. Figure 7 displays the output of this smoothing process.
 
 <p align="center">
- <img src="report_images/window_line.png" alt="histogram_image" style="width:100%">
+ <img src="report_images/smooth_window_line.png" alt="smooth_window_line" style="width:100%">
  <br>
  <em>Figure 7 - Smoothed Window with Yellow Reconstructed Polynomial Line</em>
 </p>
@@ -241,9 +241,13 @@ We calculate the radius of the lane line as well as the deviation of the vehicle
 
 The lane line curvature is measured by implementing some mathematical formula in our code. The formula is as follow: 
 
-`x = mx / (my**2) * a * (y**2) + (mx / my) * b * y + c`
+<p align="center">
+ <img src="curve_radius_formula.png" alt="curve_radius_formula" style="width:80%">
+ <br>
+ <em>Figure 8 - Unwarped Image</em>
+</p>
 
-This radius changes as the vehicle move along as in our video. The implementation of this formula is contained in section a.b. of advanced_lane_finding.ipynb notebook file. 
+This radius changes as the vehicle move along as in our video. The implementation of this formula is contained in section 6 of advanced_lane_finding.ipynb notebook file. 
 
 
 ## 3. Building the Pipeline
@@ -278,7 +282,7 @@ def pipeline(image):
 
 ### 3.1. Results on Images
 
-Figure XYZ display how our pipeline pipeline provides us (1) the left and right lane position, (2) the radius of the lane curvatture, and (3) the distance of the car relative to the lane's center.
+Figure 9 displays how our pipeline pipeline provides us (1) the left and right lane position, (2) the radius of the lane curvatture, and (3) the distance of the car relative to the lane's center.
 
 <p align="center">
   <img src="report_images/radius_deviation.png" alt="radius_deviation" style="width:100%">
@@ -289,27 +293,16 @@ Figure XYZ display how our pipeline pipeline provides us (1) the left and right 
 
 ### 3.2. Results on Videos
 
-Here is the [link to my video result](./project_video.mp4). As you can see in the GIF below the pipeline provides us the information similar to what we have seen in figure XYZ  but in a video.
+Here is the [link to my video result](https://github.com/arief25ramadhan/Advanced-Lane-Finding/blob/main/output_videos/project_video_output.mp4). As you can see in the GIF below the pipeline provides us the information similar to what we have seen in figure 9.
+
 
 ## 4. Discussion
-As we can see by the [project video](videos/project_video_augmented.mp4) the pipeline works well for a "simple" video stream,  This is becase there's litte changes in elevation, lighting or any steep bends.
 
----
+The pipeline works well for the project video because there is little change in lighting, lane lines, and shadowing. 
 
-If we analyse the slightly harder video:
+The model does not perform adequately in the [challenge video](https://github.com/arief25ramadhan/Advanced-Lane-Finding/blob/main/output_videos/project_video_output.mp4), mainly because of the additional features like different lighting and the intersection of varying road asphalt colors. 
 
-![alt text](videos/challenge_video_augmented.gif "Result")
-
-We can clearly see that the pipeline start to struggle, this is because this video adds features like a concrete seperator that projects a shadow into the lane and paralel to the lane lines. Close to the camera the model works relatively well but near the escape point we can see the lane detection starting to fail.
-
----
-
-If we then look at the more challenging video:
-
-![alt text](videos/harder_challenge_video_augmented.gif "Result")
-
-It's obvious that the model does not perform well. The lane boundary is "all over the place" and could not keep the car inside the lane.
-This is most likely due to the nature of the road, single line for each traffic direction, steeper bends and a higher proximity to the side of the road.
+The way to overcome this is a better thresholding technique, with optimum threshold values. The dilemma in setting threshold is that if it is too strict, the lane lines would only appear if it is painted on the road, while if the threshold too flexible, we might find lane lines where there is none.
 
 ## 5. Link
 
